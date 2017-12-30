@@ -1,0 +1,64 @@
+<div id="main">
+  <section id="intro" class="one dark cover">
+    <div class="container">
+      <header>
+        <h2 class="alt">Hi! I'm <strong>Emre Ucuzoglu</strong></h2>
+        <p>A brief summary;</p>
+        <ul>
+          <li *ngFor="let item of data.intro.items">{{item}}</li>
+        </ul>
+      </header>
+    </div>
+  </section>
+  <section id="about" class="two">
+    <div class="container">
+      <header>
+        <h2>About Me</h2>
+      </header>
+      <p *ngFor="let item of data.about.items">{{item}}</p>
+    </div>
+  </section>
+  <section id="work" class="three">
+    <div class="work container">
+      <div>
+        <header>
+          <h2>Work Experience</h2><br/>
+        </header>
+        <table>
+          <tr class="job" *ngFor="let item of data.experience.items">
+            <td>
+              <table>
+                <tr>
+                  <td colspan="2" class="wplace">{{item.company}}, {{item.location}}</td>
+                </tr>
+                <tr>
+                  <td class="wpos">{{item.title}}</td>
+                  <td class="wdate">{{item.startDate | date: 'MMMM yyyy'}} - {{(item.endDate | date: 'MMMM yyyy') ||
+                    'Present'}}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="jdes"></td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="wdes">{{item.summary}}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="wdes">
+                    <ul>
+                      <li>
+                        <a *ngFor="let tech of item.items"
+                           href="javascript:google({{tech.link}});">{{tech.summary}}, </a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
